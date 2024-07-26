@@ -10,6 +10,7 @@ export interface IGame {
   difficulty: string;
   isRunning: boolean;
   board: any;
+  solutionBoard: any;
   durationInMinutes: number;
   scour: number;
   createdAt: string;

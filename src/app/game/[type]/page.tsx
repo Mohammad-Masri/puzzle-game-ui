@@ -8,6 +8,7 @@ export default function GamePage() {
   const game = useAppSelector(selectCurrentGame);
 
   const board: number[][] = game?.board;
+  const solutionBoard: number[][] = game?.solutionBoard;
 
   const handleChangeCell = (i: number, j: number, value: number) => {
     console.log({ i, j, value });
@@ -36,7 +37,10 @@ export default function GamePage() {
                     <td key={key} className={" text-center " + bgColor}>
                       {item === 0 ? (
                         <input
-                          className="max-w-9 text-center"
+                          className="max-w-9 text-center border-[1px] border-black"
+                          value={
+                            solutionBoard[i][j] === 0 ? "" : solutionBoard[i][j]
+                          }
                           onChange={(e) => {
                             handleChangeCell(i, j, Number(e.target.value));
                           }}
